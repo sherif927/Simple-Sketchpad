@@ -19,7 +19,8 @@ import java.util.List;
 
 public class DrawingPanel extends SurfaceView implements SurfaceHolder.Callback{
     private Context context;
-    private Paint paint;
+    private Paint paint,selectedPaint;
+    private int selectedColor;
     private Path path;
     private List<Line> canvasPaths;
 
@@ -43,7 +44,8 @@ public class DrawingPanel extends SurfaceView implements SurfaceHolder.Callback{
     }
 
     public void setCanvasColor(int color){
-        paint.setColor(color);
+        selectedPaint.setColor(color);
+        selectedColor=color;
     }
 
     public void initializeView(){
@@ -51,12 +53,13 @@ public class DrawingPanel extends SurfaceView implements SurfaceHolder.Callback{
         path=new Path();
         paint=new Paint();
         canvasPaths=new ArrayList<>();
-        canvasPaths.add(new Line(path,paint));
         paint.setAntiAlias(true);
         paint.setStrokeWidth(5f);
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeJoin(Paint.Join.ROUND);
+        selectedPaint=paint;
+        selectedColor=Color.BLACK;
     }
 
     @Override
@@ -84,7 +87,9 @@ public class DrawingPanel extends SurfaceView implements SurfaceHolder.Callback{
                 path.lineTo(event.getX(), event.getY());
                 break;
             case MotionEvent.ACTION_UP:
-                canvasPaths.add(new Line(path,paint));
+                int color=selectedPaint.getColor();
+                canvasPaths.add(new Line(path,selectedColor));
+                path=new Path();
                 break;
             default:
                 return false;
@@ -95,8 +100,18 @@ public class DrawingPanel extends SurfaceView implements SurfaceHolder.Callback{
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        selectedPaint.setColor(selectedColor);
+        canvas.drawPath(path,selectedPaint);
         for(int i=0;i<canvasPaths.size();i++){
-            canvas.drawPath(canvasPaths.get(i).getPath(),canvasPaths.get(i).getPaint());
+            paint.setColor(canvasPaths.get(i).getPaint());
+            canvas.drawPath(canvasPaths.get(i).getPath(),paint);
+        }
+    }
+
+    public void popPath(){
+        if(canvasPaths.size()>0){
+            canvasPaths.remove(canvasPaths.size()-1);
+            invalidate();
         }
     }
 

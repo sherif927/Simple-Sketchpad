@@ -1,6 +1,5 @@
 package com.example.sherif.sketchpad;
 
-import android.graphics.Paint;
 import android.graphics.Path;
 
 /**
@@ -8,15 +7,15 @@ import android.graphics.Path;
  */
 
 public class Line {
-    private Paint paint;
+    private int paint;
     private Path path;
 
-    public Line(Path path, Paint paint) {
+    public Line(Path path, int paint) {
         this.paint = paint;
         this.path = path;
     }
 
-    public Paint getPaint() {
+    public int getPaint() {
         return paint;
     }
 
