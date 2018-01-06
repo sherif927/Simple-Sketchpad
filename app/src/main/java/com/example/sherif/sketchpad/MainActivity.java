@@ -39,16 +39,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.img_red:
-                panel.setCanvasColor(Color.RED);
+                panel.setPaintColor(Color.RED);
                 break;
             case R.id.img_green:
-                panel.setCanvasColor(Color.GREEN);
+                panel.setPaintColor(Color.GREEN);
                 break;
             case R.id.img_blue:
-                panel.setCanvasColor(Color.BLUE);
+                panel.setPaintColor(Color.BLUE);
                 break;
             case R.id.img_black:
-                panel.setCanvasColor(Color.BLACK);
+                panel.setPaintColor(Color.BLACK);
                 break;
             case R.id.img_back:
                 panel.popPath();

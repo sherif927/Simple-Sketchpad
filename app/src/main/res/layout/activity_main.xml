@@ -28,7 +28,16 @@
                 android:id="@+id/img_red"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
+                android:layout_centerHorizontal="true"
                 android:background="@drawable/circle_red"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/img_red"
+                android:textColor="@android:color/holo_red_light"
+                android:text="Red"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -41,7 +50,16 @@
                 android:id="@+id/img_green"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
+                android:layout_centerHorizontal="true"
                 android:background="@drawable/circle_green"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/img_green"
+                android:textColor="@color/green"
+                android:text="Green"/>
 
         </RelativeLayout>
 
@@ -55,7 +73,15 @@
                 android:id="@+id/img_blue"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
+                android:layout_centerHorizontal="true"
                 android:background="@drawable/circle_blue"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/img_blue"
+                android:textColor="@color/colorPrimary"
+                android:text="Blue"/>
 
         </RelativeLayout>
 
@@ -69,7 +95,16 @@
                 android:id="@+id/img_black"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
+                android:layout_centerHorizontal="true"
                 android:background="@drawable/circle_black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/img_black"
+                android:textColor="@android:color/black"
+                android:text="Black"/>
 
         </RelativeLayout>
 
@@ -83,8 +118,18 @@
                 android:id="@+id/img_back"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
+                android:layout_centerHorizontal="true"
                 android:scaleType="centerInside"
                 android:background="@drawable/back"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/img_back"
+                android:textColor="@android:color/black"
+                android:text="Undo"/>
+
 
         </RelativeLayout>
 

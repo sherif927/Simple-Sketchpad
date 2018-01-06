@@ -43,7 +43,7 @@ public class DrawingPanel extends SurfaceView implements SurfaceHolder.Callback{
         initializeView();
     }
 
-    public void setCanvasColor(int color){
+    public void setPaintColor(int color){
         selectedPaint.setColor(color);
         selectedColor=color;
     }
@@ -87,7 +87,6 @@ public class DrawingPanel extends SurfaceView implements SurfaceHolder.Callback{
                 path.lineTo(event.getX(), event.getY());
                 break;
             case MotionEvent.ACTION_UP:
-                int color=selectedPaint.getColor();
                 canvasPaths.add(new Line(path,selectedColor));
                 path=new Path();
                 break;
